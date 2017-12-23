@@ -116,14 +116,17 @@ detect_mac80211() {
 			set wireless.radio${devidx}.hwmode=11${mode_band}
 			${dev_id}
 			${ht_capab}
-			set wireless.radio${devidx}.disabled=1
+			set wireless.radio${devidx}.disabled=0
 
 			set wireless.default_radio${devidx}=wifi-iface
 			set wireless.default_radio${devidx}.device=radio${devidx}
 			set wireless.default_radio${devidx}.network=lan
 			set wireless.default_radio${devidx}.mode=ap
-			set wireless.default_radio${devidx}.ssid=LEDE
-			set wireless.default_radio${devidx}.encryption=none
+			set wireless.default_radio${devidx}.ssid=LEDE-TT
+			set wireless.default_radio${devidx}.encryption=wpa2
+			set wireless.default_radio${devidx}.auth_server=127.0.0.1
+			set wireless.default_radio${devidx}.auth_port=1812
+			set wireless.default_radio${devidx}.auth_secret=ascend_123
 EOF
 		uci -q commit wireless
 
