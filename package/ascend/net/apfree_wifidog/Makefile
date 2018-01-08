@@ -10,7 +10,7 @@ PKG_MAINTAINER:=Dengfeng Liu<liudengfeng@kunteng.org>
 PKG_LICENSE_FILES:=COPYING
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://gitee.com/apfree/apfree_wifidog.git
+PKG_SOURCE_URL:=https://github.com/wynter-wang/apfree_wifidog.git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_MIRROR_HASH:=dc1a052bd61c1224dda9548475c1feda9332c40fc2190ca6e4901d432379b51c
@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=Network
   DEPENDS:=+zlib +iptables-mod-extra +iptables-mod-ipopt +kmod-ipt-nat +iptables-mod-nat-extra \
            +libpthread +libopenssl +@OPENSSL_WITH_EC +@OPENSSL_WITH_DEPRECATED +@OPENSSL_WITH_PSK +libjson-c +ipset +libip4tc +libevent2 +libevent2-openssl \
-		   +fping +libmosquitto +libuci
+		   +libmosquitto +libuci
   TITLE:=Apfree's wireless captive portal solution
   URL:=http://www.kunteng.org
 endef
