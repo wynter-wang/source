@@ -1,0 +1,71 @@
+--- a/authserver-offline.html
++++ b/authserver-offline.html
+@@ -178,7 +178,7 @@
+                 不在线
+             </p>
+             <hr style="width:200px;margin:30px auto 10px;border-bottom:1px solid #3e4042;"/>
+-            <h5 class="hder">坤腾畅联</h5>
++            <h5 class="hder">杭州爱赛德</h5>
+         </article>
+     </section>
+ </body>
+--- a/internet-offline.html
++++ b/internet-offline.html
+@@ -199,7 +199,7 @@
+                 网络不在线
+             </h1>
+             <hr style="width:200px;margin:30px auto 10px;border-bottom:1px solid #3e4042;"/>
+-            <h5 class="hder">坤腾畅联</h5>
++            <h5 class="hder">杭州爱赛德</h5>
+         </article>
+     </section>
+ </body>
+--- a/wifidog-msg.html
++++ b/wifidog-msg.html
+@@ -1,6 +1,6 @@
+ <html>
+ <head>
+-    <title>坤腾畅联</title>
++    <title>杭州爱赛德</title>
+     <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+ 
+@@ -58,7 +58,7 @@
+ 
+ <body>
+ <div class="logo">
+-    <span>坤腾畅联</span>
++    <span>杭州爱赛德</span>
+ </div>
+ <div class="container">
+     <div id="header">
+--- a/wifidog-msg.html.in
++++ b/wifidog-msg.html.in
+@@ -1,6 +1,6 @@
+ <html>
+ <head>
+-    <title>坤腾畅联</title>
++    <title>杭州爱赛德</title>
+     <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+ 
+@@ -58,7 +58,7 @@
+ 
+ <body>
+ <div class="logo">
+-    <span>坤腾畅联</span>
++    <span>杭州爱赛德</span>
+ </div>
+ <div class="container">
+     <div id="header">
+--- a/wifidog-redir.html.front
++++ b/wifidog-redir.html.front
+@@ -170,7 +170,7 @@
+     <p>正在为您加载，请稍候...</p>
+     <!--<hr style="width:300px;margin:30px auto 10px;border-bottom:1px solid #77839b;border-top:1px solid #1f2228"/>-->
+ </div>
+-    <h5 class="hder footer">坤腾畅联</h5>
++    <h5 class="hder footer">杭州爱赛德</h5>
+ </body>
+ 
+ <script type="text/javascript">
