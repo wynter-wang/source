@@ -53,6 +53,10 @@
 #define AP143_MAC1_OFFSET		6
 #define AP143_WMAC_CALDATA_OFFSET	0x1000
 
+/* ath79_init_mac(ath79_eth0_data.mac_addr, art + AP143_MAC0_OFFSET, 0);
+ath79_init_mac(ath79_eth1_data.mac_addr, art + AP143_MAC1_OFFSET, 0); */
+
+
 static struct gpio_led ap143_leds_gpio[] __initdata = {
 	{
 		.name		= "ap143:green:status",
