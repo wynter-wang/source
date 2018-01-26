@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+
+# Copyright (C) wynter
+
+START=99
+STOP=85
+
+start() {
+	echo "Start gaethmon"
+	/bin/gaethmon > /dev/null 2>&1 &
+}
+
+stop() {
+	echo "Stop gaethmon"
+	/usr/bin/killall gaethmon
+}

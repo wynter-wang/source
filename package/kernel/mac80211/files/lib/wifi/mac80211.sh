@@ -122,12 +122,18 @@ detect_mac80211() {
 			set wireless.default_radio${devidx}.device=radio${devidx}
 			set wireless.default_radio${devidx}.network=lan
 			set wireless.default_radio${devidx}.mode=ap
-			set wireless.default_radio${devidx}.ssid=WiFi-Auth
+			set wireless.default_radio${devidx}.ssid=WiFi-IMSI
 			set wireless.default_radio${devidx}.encryption=wpa2
 			set wireless.default_radio${devidx}.auth_server=127.0.0.1
 			set wireless.default_radio${devidx}.auth_port=1812
 			set wireless.default_radio${devidx}.auth_secret=ascend_123
-
+			
+			add wireless wifi-iface
+			set wireless.@wifi-iface[1].device=radio${devidx}
+			set wireless.@wifi-iface[1].network=lan
+			set wireless.@wifi-iface[1].mode=ap
+			set wireless.@wifi-iface[1].ssid=WiFi-Demo
+			set wireless.@wifi-iface[1].encryption=none
 
 EOF
 		uci -q commit wireless
