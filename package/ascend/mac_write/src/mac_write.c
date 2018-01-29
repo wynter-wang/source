@@ -1,7 +1,7 @@
 /*
    
 用法
-write_wtp_mac 001f6f0f0a01
+mac_write 001f6f0f0a01
 其中
 /dev/mtdblock5 不能改，必须是这个值
 001f6f0f0a01 是12位的MAC地址，可以改。
