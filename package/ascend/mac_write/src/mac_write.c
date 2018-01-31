@@ -125,8 +125,50 @@ unsigned char ascii_to_bin(char *pmac)
     return (((tmp1 << 4) & 0xF0) | tmp2);
 }
 
+void usage(int status)
+{
+	FILE *output = status ? stderr : stdout;
+	
+	fprintf(output, "Usage: mac_write [-vhr] macaddr.\n");
+	fprintf(output, "	-v 	Check the version of programe.\n");
+	fprintf(output, "	-h 	Print this help message.\n");
+	fprintf(output, "	-r 	Reboot after mac changed! \n");
+	exit(status);
+}
+
 int main(int argc, char *argv[])
 {
+	int flag;
+	int ch;
+	char *macaddr;
+	
+	if(argc == 1)
+		usage(1);
+	else if(argc == 2)
+		macaddr = argv[1];
+	else
+		macaddr = argv[2];
+	
+	while((ch = getopt(argc, argv, "vhr")) != -1)
+	{
+		switch(ch)
+		{
+			case 'v':
+				printf("Version: 1.0\n");
+				exit(0);
+			case 'h':
+				usage(0);
+				break;
+			case 'r':
+				flag = 1;
+				break;
+			default:
+				usage(1);
+				exit(0);
+		}
+	}
+	
+	
     unsigned char m_acBuf[MAX_FILE_BUF_LEN + 4] = { 0x0 };
     char s_mac[18] = {0x0}, s_cmd[128] = {0x0};
     
@@ -134,20 +176,20 @@ int main(int argc, char *argv[])
     unsigned char mac_addr_val[6] = { 0x0, 0x1F, 0x6F, 0x01, 0xA0, 0x55 };
     
 
-    if(argc != 2)
+/*     if(argc != 2)
     {
         printf("Usage:%s cal_data_sector_name macaddress\n\t %s /dev/mtdblock4 0015EBBA0201\n",
                argv[0], argv[1]);
         return -1;
-    }
+    } */
     
-    n_macaddr_len = strlen(argv[1]);
+    n_macaddr_len = strlen(macaddr);
     if(n_macaddr_len != 12 && (n_macaddr_len != 17))
     {
-        printf("\n!Macaddress Error\n");
+        printf("!Macaddress Error\n");
         return -1;
     }
-    strcpy(s_mac, argv[1]);
+    strcpy(s_mac, macaddr);
     j = 0;
     i = 0;
     if(12 == n_macaddr_len)
@@ -213,13 +255,16 @@ int main(int argc, char *argv[])
     if(argc = 2)
     {
         snprintf(s_cmd, sizeof(s_cmd) - 1, "cat /tmp/new_mac_data > %s", MTDBLOCK5);
-        printf("%s\n", s_cmd);
+        //printf("%s\n", s_cmd);
         system(s_cmd);
     }
 
-    printf("\n!!!Write Mac Success!!!\n");
+    printf("Write Mac Success!\n");
 	
-	sleep(2);
-	system("reboot");
+	if(flag)
+	{
+		sleep(2);
+		system("reboot");
+	}
     return 0;
 }
